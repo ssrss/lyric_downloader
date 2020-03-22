@@ -42,6 +42,11 @@ while (($filename = readdir($handler)) !== false) {
 }
 //print_r($name);
 echo "扫描完毕...\n----------\nmp3  -> $mp3" .  "个\nflac -> $flac" . "个\nape  -> $ape" . "个\nm4a  -> $m4a" . "个\n未知 -> $unknown" . "个\n----------\n";
+$music_num = $flac + $m4a + $mp3 + $ape;
+if($music_num == "0")
+{
+    exit("扫描结束\n无结果\n----------\n");
+}
 echo "开始获取id\n----------\n";
 //结果
 //通过api获取歌曲名称对应的id
@@ -59,7 +64,8 @@ for ($i = 0; $i <= $num - 1; $i++) {
     );
     $data = curl_request($url, $post, "", "");
     $data = json_decode($data, true);
-    if (in_array("songs", $data)) {
+    @$check = $data['result']['songs'][0]['id'];
+    if (empty($check)) {
         echo $i + 1 . "/" . $num . " | " . $name[$i] . " -> 未找到结果\n";
     } else {
         $id = $data['result']['songs'][0]['id'];
@@ -73,6 +79,10 @@ for ($i = 0; $i <= $num - 1; $i++) {
 }
 //获取id
 //print_r($info);
+if(empty($j))
+{
+    exit("扫描结束\n无结果\n----------\n");
+}
 echo "----------\n开始下载歌词\n----------\n";
 $suc = 0;
 $lyric_num = count($info);
