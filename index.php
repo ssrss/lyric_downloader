@@ -7,7 +7,6 @@ if (empty($path)) {
 } elseif (substr($path, strlen($path) - 1, strlen($path)) == "/") {
     $path = substr($path, 0, strlen($path) - 1);
 }
-exit($path);
 require_once "curl.php";
 require_once "getlyric.php";
 $handler = opendir($path);
