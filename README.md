@@ -1,5 +1,5 @@
 # lyric_downloader
-![HitCount](http://hits.dwyl.com/soxft/soxft/lyric_downloader.svg)
+[![](https://data.jsdelivr.com/v1/package/gh/soxft/lyric_downloader/badge)](https://www.jsdelivr.com/package/gh/soxft/lyric_downloader)
 <a href="http://www.apache.org/licenses/LICENSE-2.0.html"> 
 <img src="https://img.shields.io/github/license/soxft/lyric_downloader.svg" alt="License"></a>
 <a href="https://github.com/soxft/lyric_downloader/stargazers"> 
